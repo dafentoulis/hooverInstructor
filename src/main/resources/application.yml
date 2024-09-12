@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: hoover-instructor
+
+springdoc:
+  swagger-ui:
+    docExpansion: none
+  api-docs:
+    enabled: true
