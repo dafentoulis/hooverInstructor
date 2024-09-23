@@ -1,9 +1,8 @@
 package com.hoover.hoover_instructor.controller;
 
-import com.hoover.hoover_instructor.dto.CleaningRequestDto;
 import com.hoover.hoover_instructor.domain.CleaningRequest;
 import com.hoover.hoover_instructor.domain.Coords;
-import com.hoover.hoover_instructor.dto.CleaningResultDto;
+import com.hoover.hoover_instructor.dto.CleaningRequestDto;
 import com.hoover.hoover_instructor.mappers.CleaningRestControllerMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,10 +13,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.hamcrest.CoreMatchers.is;
-import static org.mockito.ArgumentMatchers.any;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 
 @SpringBootTest

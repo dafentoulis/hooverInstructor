@@ -21,15 +21,12 @@ public class Coords {
             return true;
         }
 
-        /* Check if o is an instance of Complex or not
-          "null instanceof [type]" also returns false */
+        // Check if o is an instance of Coords or not
         if (!(o instanceof Coords c)) {
             return false;
         }
 
-        // typecast o to Complex so that we can compare data members
 
-        // Compare the data members and return accordingly
         return x == c.x
                 && y == c.y;
     }
