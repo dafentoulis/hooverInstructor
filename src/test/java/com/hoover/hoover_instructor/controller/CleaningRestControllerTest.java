@@ -1,24 +1,23 @@
 package com.hoover.hoover_instructor.controller;
 
-import com.hoover.hoover_instructor.service.CleaningService;
 import com.hoover.hoover_instructor.domain.CleaningResult;
 import com.hoover.hoover_instructor.domain.Coords;
-import org.junit.jupiter.api.*;
+import com.hoover.hoover_instructor.service.CleaningService;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.MediaType;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.hamcrest.Matchers.hasSize;
-import static org.mockito.BDDMockito.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.mockito.ArgumentMatchers.any;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.mockito.BDDMockito.given;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
 @SpringBootTest
@@ -37,16 +36,17 @@ class CleaningRestControllerTest {
     public void setup(){
         cleaningResult = CleaningResult.builder().coords(Coords.builder().x(1).y(3).build()).patches(1).build();
 
-        cleaningRequestJson = "{\n" +
-                "\"roomSize\" : [5, 5],\n" +
-                "\"coords\" : [1, 2],\n" +
-                "\"patches\" : [\n" +
-                "[1, 0],\n" +
-                "[2, 2],\n" +
-                "[2, 3]\n" +
-                "],\n" +
-                "\"instructions\" : \"NNESEESWNWW\"\n" +
-                "}";
+        cleaningRequestJson = """
+                {
+                "roomSize" : [5, 5],
+                "coords" : [1, 2],
+                "patches" : [
+                [1, 0],
+                [2, 2],
+                [2, 3]
+                ],
+                "instructions" : "NNESEESWNWW"
+                }""";
     }
 
     @Test
