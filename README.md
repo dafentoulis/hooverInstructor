@@ -1,6 +1,6 @@
 # Hoover instructor
 Using this application, you can navigate an imaginary robotic hoover (much like a Roomba) through an equally
-imaginary room based on room dimensions, locations of patched of dirt, initial position and cardinal directions.
+imaginary room based on room dimensions, locations of patches of dirt, initial position and cardinal directions.
 
 ### Assumptions
 For this implementation, we assume that the room is rectangular, there are no obstacles (except for the room walls), no doors and all
